@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var entriesQty: Int {
+        journalEntries.count
+    }
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List(journalEntries) { listedJournalEntry in
+                NavigationLink(destination: JournalEntryDetailView(entry: listedJournalEntry)) {
+                    Text(listedJournalEntry.title)
+                }
+            }
+            .navigationTitle("\(entriesQty) Journal Entries")
         }
-        .padding()
     }
 }
 

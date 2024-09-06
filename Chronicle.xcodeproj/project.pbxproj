@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B15C7932C8B4D4000EA684D /* JournalEntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B15C7922C8B4D4000EA684D /* JournalEntryDetailView.swift */; };
+		5B2D18F02C89F5910096B6D7 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D18EF2C89F5910096B6D7 /* JournalEntry.swift */; };
 		5BDA34102C874A0D004171CA /* ChronicleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA340F2C874A0D004171CA /* ChronicleApp.swift */; };
 		5BDA34122C874A0D004171CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDA34112C874A0D004171CA /* ContentView.swift */; };
 		5BDA34142C874A0E004171CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BDA34132C874A0E004171CA /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B15C7922C8B4D4000EA684D /* JournalEntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailView.swift; sourceTree = "<group>"; };
+		5B2D18EF2C89F5910096B6D7 /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		5BDA340C2C874A0D004171CA /* Chronicle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chronicle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BDA340F2C874A0D004171CA /* ChronicleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronicleApp.swift; sourceTree = "<group>"; };
 		5BDA34112C874A0D004171CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				5BDA340F2C874A0D004171CA /* ChronicleApp.swift */,
 				5BDA34112C874A0D004171CA /* ContentView.swift */,
+				5B2D18EF2C89F5910096B6D7 /* JournalEntry.swift */,
+				5B15C7922C8B4D4000EA684D /* JournalEntryDetailView.swift */,
 				5BDA34132C874A0E004171CA /* Assets.xcassets */,
 				5BDA34152C874A0E004171CA /* Preview Content */,
 			);
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B15C7932C8B4D4000EA684D /* JournalEntryDetailView.swift in Sources */,
+				5B2D18F02C89F5910096B6D7 /* JournalEntry.swift in Sources */,
 				5BDA34122C874A0D004171CA /* ContentView.swift in Sources */,
 				5BDA34102C874A0D004171CA /* ChronicleApp.swift in Sources */,
 			);
