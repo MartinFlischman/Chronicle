@@ -13,28 +13,21 @@ struct JournalEntryDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text(entry.date, style: .date)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                HStack {
+                    Text(entry.date, style: .date)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                    Text("-")
+                        .foregroundStyle(.secondary)
+                    Text(String(repeating: "⭐️", count: entry.rating))
+                }
+                .padding(.bottom, 8)
                 
                 Text("\(entry.text)")
                     .font(.body)
-                    .padding(.bottom, 10)
-                
-                Text(String(repeating: "⭐️", count: entry.rating))
-                
-//                HStack {
-//                    ForEach(1...3, id: \.self) { index in
-//                        Image(systemName: index <= entry.rating ? "star.fill" : "star")
-//                            .foregroundColor(index <= entry.rating ? .yellow : .gray)
-//                    }
-//                }
-//                .font(.body)
-//                .padding(.vertical, 5)
             }
         }
         .padding()
-        .frame(maxWidth: .infinity, alignment: .leading)
         .navigationTitle(entry.title)
         .scrollIndicators(.hidden)
     }
