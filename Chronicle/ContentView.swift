@@ -17,7 +17,7 @@ struct ContentView: View {
         NavigationStack {
             List(journalEntries) { listedJournalEntry in
                 NavigationLink(destination: JournalEntryDetailView(entry: listedJournalEntry)) {
-                    Text(listedJournalEntry.title)
+                    JournalEntryRowView(journalEntryRow: listedJournalEntry)
                 }
             }
             .navigationTitle("\(entriesQty) Journal Entries")
