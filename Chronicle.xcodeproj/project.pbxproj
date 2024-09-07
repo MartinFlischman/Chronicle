@@ -38,6 +38,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B9DD6792C8CAC3300CD04B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B2D18EF2C89F5910096B6D7 /* JournalEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B9DD67A2C8CAC4C00CD04B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BDA34112C874A0D004171CA /* ContentView.swift */,
+				5B9DD6772C8C5AD700CD04B0 /* JournalEntryRowView.swift */,
+				5B15C7922C8B4D4000EA684D /* JournalEntryDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5B9DD67B2C8CAC6100CD04B0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5BDA34032C874A0D004171CA = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				5BDA340F2C874A0D004171CA /* ChronicleApp.swift */,
-				5BDA34112C874A0D004171CA /* ContentView.swift */,
-				5B2D18EF2C89F5910096B6D7 /* JournalEntry.swift */,
-				5B15C7922C8B4D4000EA684D /* JournalEntryDetailView.swift */,
-				5B9DD6772C8C5AD700CD04B0 /* JournalEntryRowView.swift */,
+				5B9DD6792C8CAC3300CD04B0 /* Model */,
+				5B9DD67A2C8CAC4C00CD04B0 /* View */,
+				5B9DD67B2C8CAC6100CD04B0 /* ViewModel */,
 				5BDA34132C874A0E004171CA /* Assets.xcassets */,
 				5BDA34152C874A0E004171CA /* Preview Content */,
 			);
