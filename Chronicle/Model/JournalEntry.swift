@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-class JournalEntry: Identifiable {
+@Model
+final class JournalEntry {
     var date: Date = Date()
     var title: String = ""
     var text: String = ""

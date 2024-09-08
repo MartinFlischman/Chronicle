@@ -13,12 +13,12 @@ struct JournalEntryRowView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            Text(journalEntryRow.title)
+                .font(.title2)
+            
             Text(journalEntryRow.date, format: .dateTime.day().month().year())
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
-            
-            Text(journalEntryRow.title)
-                .font(.title2)
         }
     }
 }
