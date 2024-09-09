@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    
+    @Query private var journalEntries: [JournalEntry]
     
     var entriesQty: Int {
         journalEntries.count
@@ -27,4 +30,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: JournalEntry.self, inMemory: true)
 }
