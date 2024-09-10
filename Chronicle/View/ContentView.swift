@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    
+    @Environment(\.modelContext) private var modelContext
     @Query private var journalEntries: [JournalEntry]
     
     var entriesQty: Int {
@@ -24,6 +24,14 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("\(entriesQty) Journal Entries")
+            .toolbar {
+                    Button(action: {
+                        let newJournalEntry = JournalEntry(date: Date(), title: "Hello", text: "No news", rating: 2)
+                        modelContext.insert(newJournalEntry)
+                    }) {
+                        Label("Add item", systemImage: "plus")
+                }
+            }
         }
     }
 }
