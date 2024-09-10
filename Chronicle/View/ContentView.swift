@@ -12,6 +12,8 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var journalEntries: [JournalEntry]
     
+    @State var showCreateView = false
+    
     var entriesQty: Int {
         journalEntries.count
     }
@@ -26,11 +28,15 @@ struct ContentView: View {
             .navigationTitle("\(entriesQty) Journal Entries")
             .toolbar {
                     Button(action: {
-                        let newJournalEntry = JournalEntry(date: Date(), title: "Hello", text: "No news", rating: 2)
-                        modelContext.insert(newJournalEntry)
+                        showCreateView = true
+//                        let newJournalEntry = JournalEntry(date: Date(), title: "Hello", text: "No news", rating: 2)
+//                        modelContext.insert(newJournalEntry)
                     }) {
                         Label("Add item", systemImage: "plus")
                 }
+            }
+            .sheet(isPresented: $showCreateView) {
+                CreateJournalEntryView()
             }
         }
     }
