@@ -19,7 +19,7 @@ struct JournalEntryDetailView: View {
                         .foregroundStyle(.secondary)
                     Text("-")
                         .foregroundStyle(.secondary)
-                    Text(String(repeating: "⭐️", count: entry.rating))
+                    Text(String(repeating: "⭐️", count: Int(entry.rating)))
                 }
                 .padding(.bottom, 8)
                 
@@ -34,5 +34,5 @@ struct JournalEntryDetailView: View {
 }
 
 #Preview {
-    JournalEntryDetailView(entry: JournalEntry(date: Date(), title: "Sample Entry", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet ut justo et lacinia. Fusce eu interdum dui, ac vehicula magna.", rating: 2))
+    JournalEntryDetailView(entry: JournalEntry(title: "Sample Entry", date: Date(), rating: 2, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet ut justo et lacinia. Fusce eu interdum dui, ac vehicula magna."))
 }

@@ -10,16 +10,16 @@ import SwiftData
 
 @Model
 final class JournalEntry {
-    var date: Date = Date()
     var title: String = ""
+    var date: Date = Date()
+    var rating: Double = 3.0
     var text: String = ""
-    var rating: Int = 1
     
-    init(date: Date, title: String, text: String, rating: Int) {
-        self.date = date
+    init(title: String, date: Date, rating: Double, text: String) {
         self.title = title
-        self.text = text
+        self.date = date
         self.rating = rating
+        self.text = text
     }
 }
 

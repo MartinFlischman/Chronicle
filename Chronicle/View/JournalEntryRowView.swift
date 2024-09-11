@@ -25,6 +25,6 @@ struct JournalEntryRowView: View {
 
 #Preview {
     List {
-        JournalEntryRowView(journalEntryRow: JournalEntry(date: Date(), title: "Sample Entry", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet ut justo et lacinia. Fusce eu interdum dui, ac vehicula magna.", rating: 2))
+        JournalEntryRowView(journalEntryRow: JournalEntry(title: "Sample Entry", date: Date(), rating: 2, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet ut justo et lacinia. Fusce eu interdum dui, ac vehicula magna."))
     }
 }
