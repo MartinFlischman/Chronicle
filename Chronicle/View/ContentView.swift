@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var journalEntries: [JournalEntry]
+    @Query(sort: \JournalEntry.date, order: .reverse) private var journalEntries: [JournalEntry]
     
     @State var showCreateView = false
     
