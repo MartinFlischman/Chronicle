@@ -19,24 +19,30 @@ struct CreateJournalEntryView: View {
     var body: some View {
         NavigationStack {
             Form {
+                // Input field for the journal entry title
                 TextField("Title", text: $title)
                 
+                // Date picker for selecting the journal entry date
                 DatePicker("Date", selection: $date,
                            displayedComponents: [.date])
                 
+                // Display and adjust the rating with stars and a slider
                 Text(String(repeating: "⭐️", count: Int(rating)))
                 Slider(value: $rating, in: 1...3, step: 1)
                 
+                // Text editor for the main content of the journal entry
                 TextEditor(text: $text)
             }
             .navigationTitle("New Journal Entry")
             .toolbar {
+                // Cancel button to dismiss the view without saving
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
                         dismiss()
                     }
                 }
                 
+                // Save button to create a new journal entry and dismiss the view
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
                         let newJournalEntry = JournalEntry(title: title, date: date, rating: rating, text: text)

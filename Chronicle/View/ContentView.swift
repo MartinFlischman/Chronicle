@@ -9,11 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext  // Provides access to the data model context
-    @Query(sort: \JournalEntry.date, order: .reverse) private var journalEntries: [JournalEntry]  // Query to fetch journal entries, sorted by date in reverse order
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \JournalEntry.date, order: .reverse) private var journalEntries: [JournalEntry]
     
-    @State var showCreateView = false  // State to control the display of the CreateJournalEntryView
-
+    @State private var showCreateView = false  // Controls the display of the CreateJournalEntryView
+    @State private var showInfoView = false    // Controls the display of the InfoView
+    
     var entriesQty: Int {
         journalEntries.count  // Returns the number of journal entries
     }
@@ -25,31 +26,44 @@ struct ContentView: View {
                     HStack {
                         // Navigation link to view journal entry
                         NavigationLink(destination: JournalEntryDetailView(entry: listedJournalEntry)) {
-                            JournalEntryRowView(journalEntryRow: listedJournalEntry)  // View to display journal entry details
+                            JournalEntryRowView(journalEntryRow: listedJournalEntry)
                         }
                     }
                     .swipeActions {
                         // Swipe action to delete journal entry
                         Button(role: .destructive) {
-                            deleteJournalEntry(journalEntry: listedJournalEntry)  // Action to delete the journal entry
+                            deleteJournalEntry(journalEntry: listedJournalEntry)
                         } label: {
-                            Label("Delete", systemImage: "trash")  // Trash icon and label for delete action
+                            Label("Delete", systemImage: "trash")
                         }
                     }
                 }
             }
-            .navigationTitle("\(entriesQty) Journal Entries")  // Navigation bar title showing the count of journal entries
+            .navigationTitle("\(entriesQty) Journal Entries")
             .toolbar {
+                // Info button for showing information view
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        showInfoView = true  // Show InfoView when info button is tapped
+                    }) {
+                        Image(systemName: "info.circle")
+                    }
+                }
+                
+                // Add button for creating a new journal entry
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        showCreateView = true  // Show CreateJournalEntryView when button is tapped
+                        showCreateView = true
                     }) {
-                        Label("Add item", systemImage: "plus")  // Plus icon and label for adding a new journal entry
+                        Label("Add item", systemImage: "plus")
                     }
                 }
             }
             .sheet(isPresented: $showCreateView) {
-                CreateJournalEntryView()  // Present CreateJournalEntryView as a sheet
+                CreateJournalEntryView()
+            }
+            .sheet(isPresented: $showInfoView) {
+                InfoView(showInfoView: $showInfoView)  // Present InfoView as a sheet
             }
         }
     }
@@ -62,5 +76,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: JournalEntry.self, inMemory: true)  // Preview with in-memory data model
+        .modelContainer(for: JournalEntry.self, inMemory: true)
 }
