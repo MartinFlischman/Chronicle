@@ -12,48 +12,53 @@ struct EditJournalEntryView: View {
     @Environment(\.dismiss) var dismiss
     
     @State var editingJournalEntry: JournalEntry
-    @State var editMode = true
+    @State private var editMode = true
     
     var body: some View {
-        if editMode {
-            Form {
-                TextField("Title", text: $editingJournalEntry.title)
-                
-                DatePicker("Date", selection: $editingJournalEntry.date,
-                           displayedComponents: [.date])
-                
-                Text(String(repeating: "⭐️", count: Int(editingJournalEntry.rating)))
-                Slider(value: $editingJournalEntry.rating, in: 1...3, step: 1)
-                
-                TextEditor(text: $editingJournalEntry.text)
+        NavigationStack {
+            if editMode {
+                Form {
+                    TextField("Title", text: $editingJournalEntry.title)
+                    
+                    DatePicker("Date", selection: $editingJournalEntry.date,
+                               displayedComponents: [.date])
+                    
+                    Text(String(repeating: "⭐️", count: Int(editingJournalEntry.rating)))
+                    Slider(value: $editingJournalEntry.rating, in: 1...3, step: 1)
+                    
+                    TextEditor(text: $editingJournalEntry.text)
+                }
+                .navigationTitle("Edit journal entry")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Done") {
+                            saveChanges()
+                        }
+                        .bold()
+                    }
+                }
+            } else {
+                JournalEntryDetailView(entry: editingJournalEntry)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Edit") {
+                                editMode = true
+                            }
+                        }
+                    }
             }
-            .navigationTitle("Edit journal entry")
-                .toolbar {
-                    Button("Delete") {
-                        modelContext.delete(editingJournalEntry)
-                        dismiss()
-                    }
-                    .foregroundStyle(.red)
-                    Button("Done") {
-                        editMode = false
-                    }
-                    .bold()
-                }
-        } else {
-            JournalEntryDetailView(entry: editingJournalEntry)
-                .toolbar {
-                    Button("Edit") {
-                        editMode = true
-                    }
-                }
+        }
+    }
+    
+    private func saveChanges() {
+        // Save changes to the model context
+        do {
+            try modelContext.save()
+            dismiss()  // Dismiss the view after saving changes
+        } catch {
+            // Handle the error if saving fails
+            print("Failed to save changes: \(error.localizedDescription)")
         }
     }
 }
 
-#Preview {
-    NavigationStack {
-        EditJournalEntryView(editingJournalEntry:     JournalEntry(
-            title: "Sunny Saturday", date: Date.now.addingTimeInterval(-2 * 24 * 60 * 60),
-            rating: 3, text: "Suspendisse a ante feugiat, egestas quam dictum, blandit nisl. Quisque ultricies hendrerit quam, et congue felis scelerisque sed."))
-    }
-}

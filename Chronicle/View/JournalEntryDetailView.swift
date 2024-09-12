@@ -9,7 +9,10 @@ import SwiftUI
 
 struct JournalEntryDetailView: View {
     let entry: JournalEntry
+    @State private var isEditViewPresented = false  // State to control the presentation of the EditJournalEntryView
     
+    @Environment(\.presentationMode) private var presentationMode  // To dismiss the view
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
@@ -31,9 +34,18 @@ struct JournalEntryDetailView: View {
         .padding()
         .navigationTitle(entry.title)
         .scrollIndicators(.hidden)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    isEditViewPresented = true  // Present the EditJournalEntryView when tapped
+                }) {
+                    Text("Edit")
+                        .fontWeight(.bold)  // Style for the Edit button
+                }
+            }
+        }
+        .sheet(isPresented: $isEditViewPresented) {
+            EditJournalEntryView(editingJournalEntry: entry)  // Present EditJournalEntryView as a sheet
+        }
     }
-}
-
-#Preview {
-    JournalEntryDetailView(entry: JournalEntry(title: "Sample Entry", date: Date(), rating: 2, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet ut justo et lacinia. Fusce eu interdum dui, ac vehicula magna."))
 }

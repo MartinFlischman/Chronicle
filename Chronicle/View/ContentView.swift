@@ -23,8 +23,8 @@ struct ContentView: View {
             List {
                 ForEach(journalEntries) { listedJournalEntry in
                     HStack {
-                        // Navigation link to edit journal entry
-                        NavigationLink(destination: EditJournalEntryView(editingJournalEntry: listedJournalEntry)) {
+                        // Navigation link to view journal entry
+                        NavigationLink(destination: JournalEntryDetailView(entry: listedJournalEntry)) {
                             JournalEntryRowView(journalEntryRow: listedJournalEntry)  // View to display journal entry details
                         }
                     }
