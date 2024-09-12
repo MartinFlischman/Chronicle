@@ -21,7 +21,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(journalEntries) { listedJournalEntry in
-                NavigationLink(destination: JournalEntryDetailView(entry: listedJournalEntry)) {
+                NavigationLink(destination: EditJournalEntryView(editingJournalEntry: listedJournalEntry)) {
                     JournalEntryRowView(journalEntryRow: listedJournalEntry)
                 }
             }
@@ -29,8 +29,6 @@ struct ContentView: View {
             .toolbar {
                     Button(action: {
                         showCreateView = true
-//                        let newJournalEntry = JournalEntry(date: Date(), title: "Hello", text: "No news", rating: 2)
-//                        modelContext.insert(newJournalEntry)
                     }) {
                         Label("Add item", systemImage: "plus")
                 }

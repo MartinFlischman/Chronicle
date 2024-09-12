@@ -20,6 +20,7 @@ struct JournalEntryDetailView: View {
                     Text("-")
                         .foregroundStyle(.secondary)
                     Text(String(repeating: "⭐️", count: Int(entry.rating)))
+                    Spacer()
                 }
                 .padding(.bottom, 8)
                 
