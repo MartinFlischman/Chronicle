@@ -30,4 +30,4 @@
 ![Jornal Entry](Chronicle/Assets.xcassets/screenshot-03.imageset/screenshot-03.png)
 ![Edit Screen](Chronicle/Assets.xcassets/screenshot-04.imageset/screenshot-04.png)
 ![Information Screen](Chronicle/Assets.xcassets/screenshot-05.imageset/screenshot-05.png)
-![Delete Entry](Chronicle/Assets.xcassets/screenshot-06.imageset/screenshot06.png)
+![Delete Entry](Chronicle/Assets.xcassets/screenshot-06.imageset/screenshot-06.png)
