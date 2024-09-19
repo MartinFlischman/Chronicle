@@ -11,11 +11,13 @@
   - **1 star:** A bad day.
   - **2 stars:** An average day.
   - **3 stars:** A great day.
+- **Search functionality:** Quickly find journal entries by title or content using the built-in search feature.
 - **Edit entries:** Update existing journal entries at any time.
 - **Delete entries:** Remove unwanted entries with a single tap (action is permanent).
 - **View entry details:** See journal entries in detail with your rating and notes.
 - **Custom toolbar:** Consistent white toolbar and title text in entry views.
 - **Information icon:** Tap the “i” symbol in the top left of the app to access more information about the app.
+- **Light and dark mode support:** The app adapts seamlessly to both light and dark modes, ensuring a pleasant experience in any environment.
 
 ## Installation
 
@@ -27,7 +29,8 @@
 
 ![App Icon](Chronicle/Assets.xcassets/screenshot-01.imageset/screenshot-01.png)
 ![Main View / Home Screen](Chronicle/Assets.xcassets/screenshot-02.imageset/screenshot-02.png)
-![Jornal Entry](Chronicle/Assets.xcassets/screenshot-03.imageset/screenshot-03.png)
-![Edit Screen](Chronicle/Assets.xcassets/screenshot-04.imageset/screenshot-04.png)
-![Information Screen](Chronicle/Assets.xcassets/screenshot-05.imageset/screenshot-05.png)
-![Delete Entry](Chronicle/Assets.xcassets/screenshot-06.imageset/screenshot-06.png)
+![View Jornal Entry](Chronicle/Assets.xcassets/screenshot-03.imageset/screenshot-03.png)
+![Edit Journal Entry](Chronicle/Assets.xcassets/screenshot-04.imageset/screenshot-04.png)
+![Search For Journal Entry](Chronicle/Assets.xcassets/screenshot-05.imageset/screenshot-05.png)
+![App Information Screen](Chronicle/Assets.xcassets/screenshot-05.imageset/screenshot-06.png)
+![Delete Journal Entry](Chronicle/Assets.xcassets/screenshot-06.imageset/screenshot-07.png)
