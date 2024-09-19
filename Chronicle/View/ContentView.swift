@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @State private var showCreateView = false  // Controls the display of the CreateJournalEntryView
     @State private var showInfoView = false    // Controls the display of the InfoView
+    @State private var searchText = "" // Holds the search text entered by the user
     
     var entriesQty: Int {
         journalEntries.count  // Returns the number of journal entries
@@ -22,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(journalEntries) { listedJournalEntry in
+                ForEach(searchResults) { listedJournalEntry in
                     HStack {
                         // Navigation link to view journal entry
                         NavigationLink(destination: JournalEntryDetailView(entry: listedJournalEntry)) {
@@ -65,6 +66,16 @@ struct ContentView: View {
             .sheet(isPresented: $showInfoView) {
                 InfoView(showInfoView: $showInfoView)  // Present InfoView as a sheet
             }
+        }
+        .searchable(text: $searchText, prompt: "Search for a journal entry") // Adds search functionality with a prompt
+    }
+    
+    var searchResults: [JournalEntry] {
+        // Return all journal entries if search text is empty, otherwise filter entries by title or text
+        if searchText.isEmpty {
+            return journalEntries
+        } else {
+            return journalEntries.filter { $0.title.lowercased().contains(searchText.lowercased()) || $0.text.lowercased().contains(searchText.lowercased()) }
         }
     }
     
