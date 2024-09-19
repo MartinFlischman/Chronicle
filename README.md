@@ -32,5 +32,5 @@
 ![View Jornal Entry](Chronicle/Assets.xcassets/screenshot-03.imageset/screenshot-03.png)
 ![Edit Journal Entry](Chronicle/Assets.xcassets/screenshot-04.imageset/screenshot-04.png)
 ![Search For Journal Entry](Chronicle/Assets.xcassets/screenshot-05.imageset/screenshot-05.png)
-![App Information Screen](Chronicle/Assets.xcassets/screenshot-05.imageset/screenshot-06.png)
-![Delete Journal Entry](Chronicle/Assets.xcassets/screenshot-06.imageset/screenshot-07.png)
+![App Information Screen](Chronicle/Assets.xcassets/screenshot-06.imageset/screenshot-06.png)
+![Delete Journal Entry](Chronicle/Assets.xcassets/screenshot-07.imageset/screenshot-07.png)
