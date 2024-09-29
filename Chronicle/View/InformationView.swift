@@ -30,6 +30,7 @@ struct InformationView: View {
                         Text("Chronicle")
                             .font(.system(size: 48))
                             .fontWeight(.black)
+                            .foregroundColor(.indigo)
                         
                         Spacer()
                     }
