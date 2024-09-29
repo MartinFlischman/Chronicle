@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+// MARK: View for creating a new journal entry
 struct CreateJournalEntryView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     
+    // MARK: State variables for journal entry properties
     @State var title: String = ""
     @State var date: Date = Date()
     @State var rating: Double = 3.0
@@ -19,35 +21,43 @@ struct CreateJournalEntryView: View {
     var body: some View {
         NavigationStack {
             Form {
-                // Input field for the journal entry title
+                // MARK: Input field for title
                 TextField("Title", text: $title)
                 
-                // Date picker for selecting the journal entry date
-                DatePicker("Date", selection: $date,
-                           displayedComponents: [.date])
+                // MARK: Date picker for entry date
+                DatePicker("Date", selection: $date, displayedComponents: [.date])
                 
-                // Display and adjust the rating with stars and a slider
-                Text(String(repeating: "⭐️", count: Int(rating)))
-                Slider(value: $rating, in: 1...3, step: 1)
-                
-                // Text editor for the main content of the journal entry
-                TextEditor(text: $text)
-            }
-            .navigationTitle("New Journal Entry")
-            .toolbar {
-                // Cancel button to dismiss the view without saving
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
+                HStack {
+                    // MARK: Display stars based on the rating
+                    ForEach(1...3, id: \.self) { index in
+                        Image(systemName: index <= Int(rating) ? "star.fill" : "star")
+                            .foregroundColor(index <= Int(rating) ? .yellow : .gray)
+                            .font(.system(size: 20))
+                            .frame(width: 20, height: 20)
                     }
                 }
                 
-                // Save button to create a new journal entry and dismiss the view
+                // MARK: Slider for adjusting rating
+                Slider(value: $rating, in: 1...3, step: 1)
+                
+                // MARK: Text editor for journal entry content
+                TextEditor(text: $text)
+            }
+            .navigationTitle("New Journal Entry") // MARK: Title for the navigation
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    // MARK: Button to dismiss the view
+                    Button("Cancel") {
+                        dismiss() // Dismiss the view when cancel is pressed
+                    }
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
+                    // MARK: Button to save the journal entry
                     Button("Save") {
                         let newJournalEntry = JournalEntry(title: title, date: date, rating: rating, text: text)
-                        modelContext.insert(newJournalEntry)
-                        dismiss()
+                        modelContext.insert(newJournalEntry) // Insert new journal entry into the model context
+                        dismiss() // Dismiss the view after saving
                     }
                 }
             }

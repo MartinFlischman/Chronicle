@@ -7,39 +7,39 @@
 
 import SwiftUI
 
-// View to display details of a journal entry
+// MARK: View to display details of a journal entry
 struct JournalEntryDetailView: View {
     let entry: JournalEntry
-    @State private var isEditViewPresented = false  // Controls the presentation of the EditJournalEntryView
-    @Environment(\.presentationMode) private var presentationMode  // To dismiss the view
+    @State private var isEditViewPresented = false  // MARK: Controls the presentation of the EditJournalEntryView
+    @Environment(\.presentationMode) private var presentationMode  // MARK: To dismiss the view
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    // Display the date of the journal entry
+                    // MARK: Display the date of the journal entry
                     Text(entry.date, style: .date)
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                     Text("-")
                         .foregroundStyle(.secondary)
-                    // Display the rating as stars
+                    // MARK: Display the rating as stars
                     Text(String(repeating: "⭐️", count: Int(entry.rating)))
                     Spacer()
                 }
                 .padding(.bottom, 8)
                 
-                // Display the text of the journal entry
+                // MARK: Display the text of the journal entry
                 Text(entry.text)
                     .font(.body)
             }
         }
         .padding()
-        .navigationTitle(entry.title)  // Set the navigation bar title
+        .navigationTitle(entry.title)  // MARK: Set the navigation bar title
         .scrollIndicators(.hidden)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                // Button to present the EditJournalEntryView
+                // MARK: Button to present the EditJournalEntryView
                 Button(action: {
                     isEditViewPresented = true
                 }) {
@@ -49,7 +49,7 @@ struct JournalEntryDetailView: View {
             }
         }
         .sheet(isPresented: $isEditViewPresented) {
-            // Present EditJournalEntryView as a sheet
+            // MARK: Present EditJournalEntryView as a sheet
             EditJournalEntryView(editingJournalEntry: entry)
         }
     }
