@@ -14,7 +14,7 @@ struct CustomListRowView: View {
     @State var rowLinkLabel: String? = nil // Optional link label for a clickable link
     @State var rowLinkDestination: String? = nil // Optional URL destination for the link
     @State var rowIcon: String // Icon name for the row
-    @State var rowTintColor: Color // Tint color for the icon
+    @State var rowTintColor: Color // Tint color for the icon and text
     
     var body: some View {
         HStack {
@@ -26,18 +26,19 @@ struct CustomListRowView: View {
             } else if let linkLabel = rowLinkLabel, let linkDestination = rowLinkDestination, let url = URL(string: linkDestination) {
                 // Display a clickable link if link properties are provided
                 Link(linkLabel, destination: url)
-                    .foregroundColor(.blue)
+                    .foregroundColor(rowTintColor) // Use rowTintColor for the link text
+                    .fontWeight(.bold) // Optional: make the link text bold
             } else {
                 // Default to displaying the row label if no other content is provided
                 Text(rowLabel)
-                    .foregroundColor(.primary)
+                    .foregroundColor(rowTintColor) // Use rowTintColor for the row label
             }
             
             Spacer() // Add space between content and icon
             
             // Display the icon with the specified tint color
             Image(systemName: rowIcon)
-                .foregroundColor(rowTintColor)
+                .foregroundColor(rowTintColor) // Use rowTintColor for the icon
                 .font(.system(size: 16, weight: .semibold))
         }
     }
@@ -46,6 +47,6 @@ struct CustomListRowView: View {
 #Preview {
     // Preview for the CustomListRowView in a List
     List {
-        CustomListRowView(rowLabel: "Developer Website", rowLinkLabel: "Developer Website", rowLinkDestination: "https://developer.apple.com", rowIcon: "globe", rowTintColor: .blue)
+        CustomListRowView(rowLabel: "Report a Problem", rowLinkLabel: "Report a Problem", rowLinkDestination: "mailto:martincodes@icloud.com?subject=Report%20a%20Problem%20-%20Chronicle", rowIcon: "exclamationmark.circle", rowTintColor: .indigo)
     }
 }

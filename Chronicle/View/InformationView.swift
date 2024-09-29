@@ -117,22 +117,27 @@ struct InformationView: View {
             .listRowSeparator(.hidden) // Hide row separators
             
             // MARK: Additional Information Section
-            Section(header: Text("Information")) {
+            Section(header: Text("Information"), footer: Text("Copyright © 2024 MartinCodes. All rights reserved.")
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity)
+                .font(.footnote)
+                .foregroundColor(.gray)
+                .padding(.top, 16)) {
+                
                 // Various informational rows using CustomListRowView
-                CustomListRowView(rowLabel: "Copyright", rowContent: "App Version: 1.0", rowIcon: "iphone", rowTintColor: .primary)
+                CustomListRowView(rowLabel: "App Version", rowContent: "1.0", rowIcon: "iphone", rowTintColor: .primary)
                 
-                CustomListRowView(rowLabel: "Age Rating:", rowContent: "Age Rating: 12+", rowIcon: "figure", rowTintColor: .primary)
+                CustomListRowView(rowLabel: "Age Rating", rowContent: "12+", rowIcon: "figure", rowTintColor: .primary)
                 
-                CustomListRowView(rowLabel: "Copyright", rowContent: "2024 Copyright", rowIcon: "c.circle", rowTintColor: .primary)
-                
-                CustomListRowView(rowLabel: "Developer", rowContent: "Developer: MartinCodes", rowIcon: "swift", rowTintColor: .primary)
+                CustomListRowView(rowLabel: "Developer", rowContent: "MartinCodes", rowIcon: "swift", rowTintColor: .primary)
                 
                 // Developer website link
-                CustomListRowView(rowLabel: "Developer Website", rowLinkLabel: "Developer Website", rowLinkDestination: "https://github.com/MartinFlischman/Chronicle", rowIcon: "globe", rowTintColor: .blue)
+                CustomListRowView(rowLabel: "Developer Website", rowLinkLabel: "Developer Website", rowLinkDestination: "https://github.com/MartinFlischman/Chronicle", rowIcon: "globe", rowTintColor: .indigo)
                 
                 // Report a problem link
-                CustomListRowView(rowLabel: "Report a Problem", rowLinkLabel: "Report a Problem", rowLinkDestination: "mailto:martincodes@icloud.com?subject=Report%20a%20Problem%20-%20Chronicle", rowIcon: "exclamationmark.circle", rowTintColor: .blue)
+                CustomListRowView(rowLabel: "Report a Problem", rowLinkLabel: "Report a Problem", rowLinkDestination: "mailto:martincodes@icloud.com?subject=Report%20a%20Problem%20-%20Chronicle", rowIcon: "exclamationmark.circle", rowTintColor: .indigo)
             }
+
         }
     }
 }
