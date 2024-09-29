@@ -43,7 +43,7 @@ struct CreateJournalEntryView: View {
                 // MARK: Text editor for journal entry content
                 TextEditor(text: $text)
             }
-            .navigationTitle("New Journal Entry") // MARK: Title for the navigation
+            .navigationTitle("New Entry") // MARK: Title for the navigation
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     // MARK: Button to dismiss the view

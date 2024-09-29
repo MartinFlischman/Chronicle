@@ -34,7 +34,7 @@ struct EditJournalEntryView: View {
                     // MARK: Text editor for editing the main content of the journal entry
                     TextEditor(text: $editingJournalEntry.text)
                 }
-                .navigationTitle("Edit Journal Entry")  // Title for edit mode
+                .navigationTitle("Edit Entry")  // Title for edit mode
                 .toolbar {
                     // MARK: Done button to save changes and exit edit mode
                     ToolbarItem(placement: .navigationBarTrailing) {

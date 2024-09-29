@@ -117,7 +117,7 @@ struct InformationView: View {
             .listRowSeparator(.hidden) // Hide row separators
             
             // MARK: Additional Information Section
-            Section(header: Text("Information"), footer: Text("Copyright © 2024 MartinCodes. All rights reserved.")
+            Section(header: Text("App Information"), footer: Text("Copyright © 2024 MartinCodes. All rights reserved.")
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
                 .font(.footnote)
@@ -125,11 +125,11 @@ struct InformationView: View {
                 .padding(.top, 16)) {
                 
                 // Various informational rows using CustomListRowView
-                CustomListRowView(rowLabel: "App Version", rowContent: "1.0", rowIcon: "iphone", rowTintColor: .primary)
+                CustomListRowView(rowLabel: "App Version", rowContent: "Version: 1.0", rowIcon: "iphone", rowTintColor: .primary)
                 
-                CustomListRowView(rowLabel: "Age Rating", rowContent: "12+", rowIcon: "figure", rowTintColor: .primary)
+                CustomListRowView(rowLabel: "Age Rating", rowContent: "Age Rating: 12+", rowIcon: "figure", rowTintColor: .primary)
                 
-                CustomListRowView(rowLabel: "Developer", rowContent: "MartinCodes", rowIcon: "swift", rowTintColor: .primary)
+                CustomListRowView(rowLabel: "Developer", rowContent: "Developer: MartinCodes", rowIcon: "swift", rowTintColor: .primary)
                 
                 // Developer website link
                 CustomListRowView(rowLabel: "Developer Website", rowLinkLabel: "Developer Website", rowLinkDestination: "https://github.com/MartinFlischman/Chronicle", rowIcon: "globe", rowTintColor: .indigo)
